@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> RockOn</title> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="animation.css">
+   </head>
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="#">RockOn</a>
+      </div>
+      <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="aboutme.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faqs.html">FAQS</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="img"></div>
+  <div class="center">
+    <div class="title" >RockOn Presents: Live in Concert</div>
+    <div class="sub_title">Join us for an unforgettable night of music</div>
+    <div class="countdown-container">
+      <h2>Event Countdown</h2>
+      <div id="countdown">
+          <span id="days"></span> days
+          <span id="hours"></span> hours
+          <span id="minutes"></span> minutes
+          <span id="seconds"></span> seconds
+      </div>
+  </div>
+  
+    <div class="btns">
+      <p class="date">Madison Square Garden, NYC</p>
+      <a href="tickets.html" class="btn">Book Your Tickets</a>
+    </div>
+  </div>
+
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img src="concert2.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides fade">
+      <img src="concert4.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides fade">
+      <img src="concert5.jpg " style="width:100%">
+    </div>
+  
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+  </div>
+<script src="script.js"></script>  
+<script>
+  // Set the date and time for the event (change as required)
+  var eventDate = new Date("2024-10-25T18:00:00").getTime();
+
+  // Update the countdown every second
+  var countdownInterval = setInterval(function() {
+      var now = new Date().getTime();
+      var timeLeft = eventDate - now;
+
+      // Calculate time components
+      var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      // Display the result
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+      // If countdown is over
+      if (timeLeft < 0) {
+          clearInterval(countdownInterval);
+          document.getElementById("countdown").innerHTML = "The event has started!";
+      }
+  }, 1000);
+</script>
+
+</body>
+</html>

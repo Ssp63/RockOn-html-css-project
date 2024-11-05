@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - RockOn Music Concert</title>
+    <link rel="stylesheet" href="Styles1.css">
+</head>
+<body>
+    <header>
+        <h1>Contact</h1>
+    </header>
+    <section>
+        <p>Get in touch with us for any questions, comments, or concerns about RockOn Music Concert.</p>
+        <form action="submit_form.php" method="POST">
+            <div class="input-box">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-box">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="message-box">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <div class="button">
+              <input type="submit" value="Send">
+            </div>
+          </form>
+          
+    </section>
+    <footer>
+        <p>&copy; 2024 RockOn Music Concert</p>
+        <ul>
+            <li><a href="index.html">Back to Home</a></li>
+        </ul>
+    </footer>
+
+   <script>function validateForm() {
+    let name = document.forms["contactForm"]["name"].value;
+    let email = document.forms["contactForm"]["email"].value;
+    let message = document.forms["contactForm"]["message"].value;
+    let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  
+    if (name == "") {
+      alert("Name must be filled out");
+      return false;
+    }
+  
+    if (email == "") {
+      alert("Email must be filled out");
+      return false;
+    }
+  
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address");
+      return false;
+    }
+  
+    if (message == "") {
+      alert("Message cannot be empty");
+      return false;
+    }
+  
+    return true;  // Proceed with form submission
+  }
+  </script> 
+</body>
+</html>
